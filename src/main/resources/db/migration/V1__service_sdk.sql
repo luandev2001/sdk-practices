@@ -1,11 +1,9 @@
 CREATE TABLE configuration
 (
     id         VARCHAR(255) NOT NULL,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255),
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
-    value      JSONB,
+    value      TEXT,
     name       VARCHAR(50)  NOT NULL,
     type       VARCHAR(25)  NOT NULL,
     is_edit    BOOLEAN,
@@ -16,8 +14,6 @@ CREATE TABLE configuration
 CREATE TABLE confirmation_object
 (
     id         VARCHAR(255) NOT NULL,
-    created_by VARCHAR(255),
-    updated_by VARCHAR(255),
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
     object     VARCHAR(255) NOT NULL,
@@ -30,13 +26,11 @@ CREATE TABLE confirmation_object
 
 CREATE TABLE data_sequence
 (
-    id             VARCHAR(255) NOT NULL,
-    created_by     VARCHAR(255),
-    updated_by     VARCHAR(255),
-    created_at     TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-    updated_at     TIMESTAMP WITHOUT TIME ZONE,
-    class_name     VARCHAR(255) NOT NULL,
-    sequence_value VARCHAR(255) NOT NULL,
-    type           INTEGER,
+    id          VARCHAR(255) NOT NULL,
+    created_at  TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+    updated_at  TIMESTAMP WITHOUT TIME ZONE,
+    object_type VARCHAR(255) NOT NULL,
+    value       VARCHAR(255) NOT NULL,
+    type        INTEGER,
     CONSTRAINT pk_datasequence PRIMARY KEY (id)
 );

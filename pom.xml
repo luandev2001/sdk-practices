@@ -21,7 +21,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <service.sdk.version>2.2.0</service.sdk.version>
-        <generate-sdk.version>1.2.1</generate-sdk.version>
+        <generate-sdk.version>1.2.2</generate-sdk.version>
     </properties>
 
     <dependencies>
