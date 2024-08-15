@@ -1,4 +1,4 @@
-package model.entity;
+package com.xuanluan.mc.practices.entity;
 
 import com.xuanluan.mc.sdk.domain.entity.BaseEntity;
 import lombok.Getter;

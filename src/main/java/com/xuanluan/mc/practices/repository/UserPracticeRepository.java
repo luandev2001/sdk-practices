@@ -1,7 +1,7 @@
-package repository;
+package com.xuanluan.mc.practices.repository;
 
+import com.xuanluan.mc.practices.entity.UserPractice;
 import com.xuanluan.mc.sdk.repository.JpaMultipleRepository;
-import model.entity.UserPractice;
 import org.springframework.stereotype.Repository;
 
 @Repository
