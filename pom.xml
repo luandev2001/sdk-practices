@@ -6,7 +6,7 @@
 
     <groupId>com.xuanluan.mc</groupId>
     <artifactId>sdk-practices</artifactId>
-    <version>1.00</version>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
