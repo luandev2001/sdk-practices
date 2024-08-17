@@ -17,7 +17,7 @@ CREATE TABLE confirmation_object
     created_at  TIMESTAMPTZ,
     updated_at  TIMESTAMPTZ,
     object_type VARCHAR(20) NOT NULL,
-    object_id   VARCHAR(20) NOT NULL,
+    object_id   VARCHAR(36) NOT NULL,
     token       VARCHAR(50) NOT NULL,
     expired_at  TIMESTAMPTZ NOT NULL,
     type        VARCHAR(20) NOT NULL,
