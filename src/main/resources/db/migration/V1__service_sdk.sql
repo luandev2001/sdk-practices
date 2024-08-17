@@ -1,6 +1,6 @@
 CREATE TABLE configuration
 (
-    id         VARCHAR(20) NOT NULL,
+    id         VARCHAR(36) NOT NULL,
     created_at TIMESTAMPTZ,
     updated_at TIMESTAMPTZ,
     value      TEXT,
@@ -13,7 +13,7 @@ CREATE TABLE configuration
 
 CREATE TABLE confirmation_object
 (
-    id          VARCHAR(20) NOT NULL,
+    id          VARCHAR(36) NOT NULL,
     created_at  TIMESTAMPTZ,
     updated_at  TIMESTAMPTZ,
     object_type VARCHAR(20) NOT NULL,
@@ -26,9 +26,9 @@ CREATE TABLE confirmation_object
 
 CREATE TABLE data_sequence
 (
-    id          VARCHAR(20) NOT NULL,
-    created_at  TIMESTAMP TIMESTAMPTZ,
-    updated_at  TIMESTAMP TIMESTAMPTZ,
+    id          VARCHAR(36) NOT NULL,
+    created_at  TIMESTAMPTZ,
+    updated_at  TIMESTAMPTZ,
     object_type VARCHAR(20) NOT NULL,
     value       VARCHAR(30) NOT NULL,
     type        INTEGER,

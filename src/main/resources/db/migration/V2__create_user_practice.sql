@@ -1,8 +1,8 @@
 CREATE TABLE user_practice
 (
-    id         VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP WITHOUT TIME ZONE,
-    updated_at TIMESTAMP WITHOUT TIME ZONE,
+    id         VARCHAR(36) NOT NULL,
+    created_at TIMESTAMPTZ,
+    updated_at TIMESTAMPTZ,
     username   VARCHAR(40)  NOT NULL,
     CONSTRAINT pk_userpractice PRIMARY KEY (id)
 );
