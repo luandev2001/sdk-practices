@@ -2,9 +2,9 @@ package sdk.generate;
 
 import com.xuanluan.mc.practices.SdkStarterApplication;
 import com.xuanluan.mc.practices.entity.UserPractice;
-import com.xuanluan.mc.sdk.generate.domain.dto.ConfirmationObjectDTO;
-import com.xuanluan.mc.sdk.generate.domain.entity.ConfirmationObject;
-import com.xuanluan.mc.sdk.generate.domain.enums.PeriodTime;
+import com.xuanluan.mc.sdk.generate.model.dto.ConfirmationObjectDTO;
+import com.xuanluan.mc.sdk.generate.model.entity.ConfirmationObject;
+import com.xuanluan.mc.sdk.generate.model.enums.PeriodTime;
 import com.xuanluan.mc.sdk.generate.service.IConfirmationObjectService;
 import com.xuanluan.mc.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Test;
