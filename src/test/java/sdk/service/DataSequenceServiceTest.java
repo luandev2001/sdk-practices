@@ -1,8 +1,8 @@
 package sdk.service;
 
 import com.xuanluan.mc.practices.entity.UserPractice;
-import com.xuanluan.mc.sdk.domain.entity.DataSequence;
-import com.xuanluan.mc.sdk.domain.enums.SequenceType;
+import com.xuanluan.mc.sdk.model.entity.DataSequence;
+import com.xuanluan.mc.sdk.model.enums.SequenceType;
 import com.xuanluan.mc.sdk.service.IDataSequenceService;
 import com.xuanluan.mc.sdk.utils.StringUtils;
 import org.junit.jupiter.api.Test;

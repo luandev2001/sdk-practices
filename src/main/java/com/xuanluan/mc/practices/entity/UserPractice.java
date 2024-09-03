@@ -1,6 +1,6 @@
 package com.xuanluan.mc.practices.entity;
 
-import com.xuanluan.mc.sdk.domain.entity.BaseEntity;
+import com.xuanluan.mc.sdk.model.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
