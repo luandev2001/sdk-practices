@@ -9,11 +9,14 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
+import java.util.List;
 
 @Configuration
 public class MultipleTenantConfig {
     @Value("${flyway.schema_location}")
     private String schemaLocation;
+    @Value("${flyway.schema.excludes}")
+    private String[] excludeNames;
 
     @Bean
     ITenantIdentifierResolver tenantIdentifierResolver() {
@@ -32,7 +35,7 @@ public class MultipleTenantConfig {
 
     @Bean
     ITenantService tenantService(EntityManager entityManager) {
-        return new PostgresTenantServiceImpl(entityManager);
+        return new PostgresTenantServiceImpl(entityManager, List.of(excludeNames));
     }
 
 }
