@@ -15,7 +15,7 @@ public class MessageLocaleTest {
     private MessageSourceAccessor messageSourceAccessor;
 
     @Test
-    void testWhenUseCodeAsDefaultWhenNotFound() {
+    void testUseCodeAsDefaultWhenNotFound() {
         String code = "kkk";
         String text = messageSourceAccessor.getMessage("kkk", new Locale("en"));
         Assertions.assertEquals(code, text);

@@ -77,7 +77,7 @@ public class DataSequenceServiceTest {
         }).apply(nProcess);
         assertEquals(afterDataSequence.getValue(), preValue.get());
         String[] afterAlphabetNumber = preValue.get().split("\\.");
-        assertEquals(afterAlphabetNumber.length, 2);
+        assertEquals(2, afterAlphabetNumber.length);
 
         if (Objects.equals(alphabetNumber[0], afterAlphabetNumber[0])) {
             assertEquals(Long.parseLong(alphabetNumber[1]), Long.parseLong(afterAlphabetNumber[1]) - nProcess);
