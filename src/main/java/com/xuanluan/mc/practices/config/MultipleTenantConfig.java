@@ -1,7 +1,7 @@
 package com.xuanluan.mc.practices.config;
 
 import com.xuanluan.mc.sdk.service.ITenantService;
-import com.xuanluan.mc.sdk.service.impl.PostgresTenantServiceImpl;
+import com.xuanluan.mc.sdk.service.imp.PostgresTenantServiceImp;
 import com.xuanluan.mc.sdk.service.tenant.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +35,7 @@ public class MultipleTenantConfig {
 
     @Bean
     ITenantService tenantService(EntityManager entityManager) {
-        return new PostgresTenantServiceImpl(entityManager, List.of(excludeNames));
+        return new PostgresTenantServiceImp(entityManager, List.of(excludeNames));
     }
 
 }
