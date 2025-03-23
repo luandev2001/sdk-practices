@@ -1,8 +1,8 @@
 CREATE TABLE configuration
 (
     id         VARCHAR(36) NOT NULL,
-    created_at TIMESTAMPTZ,
-    updated_at TIMESTAMPTZ,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
     value      TEXT,
     name       VARCHAR(50) NOT NULL,
     type       VARCHAR(25) NOT NULL,
@@ -14,12 +14,12 @@ CREATE TABLE configuration
 CREATE TABLE confirmation_object
 (
     id          VARCHAR(36) NOT NULL,
-    created_at  TIMESTAMPTZ,
-    updated_at  TIMESTAMPTZ,
+    created_at  TIMESTAMP,
+    updated_at  TIMESTAMP,
     object_type VARCHAR(20) NOT NULL,
     object_id   VARCHAR(36) NOT NULL,
     token       VARCHAR(50) NOT NULL,
-    expired_at  TIMESTAMPTZ NOT NULL,
+    expired_at  TIMESTAMP NOT NULL,
     type        VARCHAR(20) NOT NULL,
     CONSTRAINT pk_confirmationobject PRIMARY KEY (id)
 );
@@ -27,8 +27,8 @@ CREATE TABLE confirmation_object
 CREATE TABLE data_sequence
 (
     id          VARCHAR(36) NOT NULL,
-    created_at  TIMESTAMPTZ,
-    updated_at  TIMESTAMPTZ,
+    created_at  TIMESTAMP,
+    updated_at  TIMESTAMP,
     object_type VARCHAR(20) NOT NULL,
     value       VARCHAR(30) NOT NULL,
     type        INTEGER,

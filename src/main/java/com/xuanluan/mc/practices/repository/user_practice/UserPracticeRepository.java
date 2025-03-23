@@ -1,4 +1,4 @@
-package com.xuanluan.mc.practices.repository;
+package com.xuanluan.mc.practices.repository.user_practice;
 
 import com.xuanluan.mc.practices.entity.UserPractice;
 import com.xuanluan.mc.sdk.repository.JpaMultipleRepository;
