@@ -11,6 +11,6 @@ import javax.persistence.Entity;
 @Setter
 @Entity
 public class UserPractice extends BaseEntity {
-    @Column(nullable = false, unique = true, length = 40)
+    @Column(nullable = false, length = 40)
     private String username;
 }

@@ -1,9 +1,11 @@
 package sdk.jpa;
 
+import com.github.javafaker.Faker;
 import com.xuanluan.mc.practices.SdkStarterApplication;
 import com.xuanluan.mc.practices.entity.UserPractice;
 import com.xuanluan.mc.practices.repository.user_practice.UserPracticeRepository;
-import com.xuanluan.mc.practices.request.page.UserPracticePageParameter;
+import com.xuanluan.mc.practices.request.page.UserPracticePrefixSearchParameter;
+import com.xuanluan.mc.practices.request.page.UserPracticeSuffixSearchParameter;
 import com.xuanluan.mc.sdk.model.enums.AttributeAction;
 import com.xuanluan.mc.sdk.model.request.page.FilterParameter;
 import com.xuanluan.mc.sdk.model.request.page.SortParameter;
@@ -33,7 +35,8 @@ public class JpaBulkDataTest {
         Instant currentDate = Instant.now();
         for (int i = 0; i < size; i++) {
             UserPractice userPractice = new UserPractice();
-            userPractice.setUsername("test" + i);
+//            userPractice.setUsername("test" + i);
+            userPractice.setUsername(Faker.instance().name().username());
             userPractice.setCreatedAt(currentDate.plus(5, ChronoUnit.MINUTES));
             userPractices.add(userPractice);
         }
@@ -45,7 +48,7 @@ public class JpaBulkDataTest {
     class BaseRepositoryV2Test {
         @Test
         void testDynamicFilterAndSort() {
-            UserPracticePageParameter parameter = new UserPracticePageParameter();
+            UserPracticePrefixSearchParameter parameter = new UserPracticePrefixSearchParameter();
             parameter.setSize(10);
             parameter.setSorts(Collections.singletonList(
                     SortParameter.builder()
@@ -76,6 +79,38 @@ public class JpaBulkDataTest {
                 indexDate = userPractice.getCreatedAt();
             }
             System.out.println("testDynamicFilterAndSort DONE!!!");
+        }
+
+        @Test
+        void testPrefixTextSearch() {
+            UserPracticePrefixSearchParameter parameter = new UserPracticePrefixSearchParameter();
+            parameter.setSize(10);
+            parameter.setKeyword("ar");
+
+            Page<UserPractice> userPracticePage = userPracticeRepository.getPage(parameter);
+            Assertions.assertEquals(userPracticePage.getSize(), parameter.getSize());
+            for (UserPractice userPractice : userPracticePage) {
+                Assertions.assertNotNull(userPractice.getUsername());
+
+                boolean isMatchKeyword = userPractice.getUsername().matches("(?i)^" + parameter.getKeyword() + ".*");
+                Assertions.assertTrue(isMatchKeyword);
+            }
+        }
+
+        @Test
+        void testSuffixTextSearch() {
+            UserPracticeSuffixSearchParameter parameter = new UserPracticeSuffixSearchParameter();
+            parameter.setSize(10);
+            parameter.setKeyword("ar");
+
+            Page<UserPractice> userPracticePage = userPracticeRepository.getPage(parameter);
+            Assertions.assertEquals(userPracticePage.getSize(), parameter.getSize());
+            for (UserPractice userPractice : userPracticePage) {
+                Assertions.assertNotNull(userPractice.getUsername());
+
+                boolean isMatchKeyword = userPractice.getUsername().matches("(?i).*" + parameter.getKeyword() + "$");
+                Assertions.assertTrue(isMatchKeyword);
+            }
         }
     }
 }
